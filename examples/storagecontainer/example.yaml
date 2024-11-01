@@ -1,0 +1,9 @@
+apiVersion: platform.example.com/v1alpha1
+kind: StorageContainer
+metadata:
+  name: example
+  namespace: default
+spec:
+  location: eastus
+  versioning: true
+  acl: public

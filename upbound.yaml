@@ -1,9 +1,13 @@
 apiVersion: meta.dev.upbound.io/v1alpha1
 kind: Project
 metadata:
-  creationTimestamp: null
   name: example-project-azure
 spec:
+  dependsOn:
+  - provider: xpkg.upbound.io/upbound/provider-azure-storage
+    version: v1.7.0
+  - function: xpkg.upbound.io/crossplane-contrib/function-auto-ready
+    version: '>=v0.0.0'
   description: This is where you can describe your project.
   license: Apache-2.0
   maintainer: Upbound User <user@example.com>

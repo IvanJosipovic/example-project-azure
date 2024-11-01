@@ -1,0 +1,38 @@
+apiVersion: apiextensions.crossplane.io/v1
+kind: CompositeResourceDefinition
+metadata:
+  name: xstoragecontainers.platform.example.com
+spec:
+  claimNames:
+    kind: StorageContainer
+    plural: storagecontainers
+  group: platform.example.com
+  names:
+    categories:
+    - crossplane
+    kind: XStorageContainer
+    plural: xstoragecontainers
+  versions:
+  - name: v1alpha1
+    referenceable: true
+    schema:
+      openAPIV3Schema:
+        description: StorageContainer is the Schema for the StorageContainer API.
+        properties:
+          spec:
+            description: StorageContainerSpec defines the desired state of StorageContainer.
+            properties:
+              acl:
+                type: string
+              location:
+                type: string
+              versioning:
+                type: boolean
+            type: object
+          status:
+            description: StorageContainerStatus defines the observed state of StorageContainer.
+            type: object
+        required:
+        - spec
+        type: object
+    served: true
