@@ -1,9 +1,10 @@
 apiVersion: platform.example.com/v1alpha1
-kind: StorageContainer
+kind: StorageBucket
 metadata:
   name: example
   namespace: default
 spec:
-  location: eastus
-  versioning: true
-  acl: public
+  parameters:
+    location: eastus
+    versioning: true
+    acl: public
