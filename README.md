@@ -1,4 +1,4 @@
-# example-project-aws
+# example-project-azure
 
 An example Upbound control plane project for Microsoft Azure.
 
