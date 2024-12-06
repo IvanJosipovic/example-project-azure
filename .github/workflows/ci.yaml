@@ -1,0 +1,22 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+env:
+  UP_TOKEN: ${{ secrets.UP_TOKEN }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Up CLI Build and Push
+        if: env.UP_TOKEN != ''
+        uses: upbound/up-project-action@v1
+        with:
+          up_token: ${{ secrets.UP_TOKEN }}
+          endpoint: https://cli.upbound.io
+          channel: main

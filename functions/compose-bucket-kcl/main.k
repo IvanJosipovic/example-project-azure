@@ -1,10 +1,10 @@
 import models.io.upbound.azure.v1beta1 as azurev1beta1
 import models.io.upbound.azure.storage.v1beta1 as storagev1beta1
+import models.com.example.platform.v1alpha1.xstoragebucket as xstoragebucketv1alpha1
 
-oxr = option("params").oxr # observed composite resource
-params = oxr.spec.parameters
+oxr = xstoragebucketv1alpha1.XStorageBucket{**option("params").oxr} # observed composite resource
 
-containerAccessType = "blob" if params.acl == "public" else "private"
+containerAccessType = "blob" if oxr.spec.parameters.acl == "public" else "private"
 groupName = "{}-group".format(oxr.metadata.name)
 accountName = oxr.metadata.name.replace("-", "")
 
@@ -22,7 +22,7 @@ _items = [
         metadata = _metadata(groupName)
         spec = {
             forProvider = {
-                location = params.location
+                location = oxr.spec.parameters.location
             }
         }
     },
@@ -32,10 +32,10 @@ _items = [
             forProvider = {
                 accountTier = "Standard"
                 accountReplicationType = "LRS"
-                location = params.location
+                location = oxr.spec.parameters.location
                 blobProperties = [
                     {
-                        versioningEnabled = params.versioning
+                        versioningEnabled = oxr.spec.parameters.versioning
                     }
                 ]
                 infrastructureEncryptionEnabled = True
