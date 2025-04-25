@@ -1,9 +1,11 @@
 apiVersion: platform.example.com/v1alpha1
-kind: StorageBucket
+kind: XStorageBucket
 metadata:
-  name: example
-  namespace: default
+  name: example-kcl
 spec:
+  compositionSelector:
+    matchLabels:
+      language: kcl
   parameters:
     location: eastus
     versioning: true
