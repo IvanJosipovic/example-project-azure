@@ -13,8 +13,6 @@ def compose(req: fnv1.RunFunctionRequest, rsp: fnv1.RunFunctionResponse):
     params = observed_xr.spec.parameters
 
     desired_group = rgv1beta1.ResourceGroup(
-        apiVersion="azure.upbound.io/v1beta1",
-        kind="ResourceGroup",
         spec=rgv1beta1.Spec(
             forProvider=rgv1beta1.ForProvider(
                 location=params.location,
@@ -46,8 +44,6 @@ def compose(req: fnv1.RunFunctionRequest, rsp: fnv1.RunFunctionResponse):
     account_external_name = observed_xr.metadata.name.replace("-", "")  # type: ignore  # Name is an optional field, but it'll always be set.
 
     desired_acct = acctv1beta1.Account(
-        apiVersion="storage.azure.upbound.io/v1beta1",
-        kind="Account",
         metadata=metav1.ObjectMeta(
             annotations={
                 "crossplane.io/external-name": account_external_name,
@@ -71,8 +67,6 @@ def compose(req: fnv1.RunFunctionRequest, rsp: fnv1.RunFunctionResponse):
     resource.update(rsp.desired.resources["acct"], desired_acct)
 
     desired_cont = contv1beta1.Container(
-        apiVersion="storage.azure.upbound.io/v1beta1",
-        kind="Container",
         spec=contv1beta1.Spec(
             forProvider=contv1beta1.ForProvider(
                 storageAccountName=account_external_name,
