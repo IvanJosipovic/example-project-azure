@@ -6,8 +6,8 @@ from .model.io.upbound.azure.storage.container import v1beta1 as contv1beta1
 from .model.com.example.platform.xstoragebucket import v1alpha1 as platformv1alpha1
 
 xStorageBucket = platformv1alpha1.XStorageBucket(
-    apiVersion=platformv1alpha1.ApiVersion.platform_example_com_v1alpha1,
-    kind=platformv1alpha1.Kind.XStorageBucket,
+    apiVersion="platform.example.com/v1alpha1",
+    kind="XStorageBucket",
     metadata=k8s.ObjectMeta(
         name="example-python"
     ),
