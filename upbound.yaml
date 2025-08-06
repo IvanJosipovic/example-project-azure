@@ -5,7 +5,7 @@ metadata:
 spec:
   dependsOn:
   - provider: xpkg.upbound.io/upbound/provider-azure-storage
-    version: '>=v1.8.0'
+    version: '>=v1.11.3'
   - function: xpkg.upbound.io/crossplane-contrib/function-auto-ready
     version: '>=v0.0.0'
   description: This is where you can describe your project.

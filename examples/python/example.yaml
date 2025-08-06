@@ -1,0 +1,12 @@
+apiVersion: platform.example.com/v1alpha1
+kind: XStorageBucket
+metadata:
+  name: example-python
+spec:
+  compositionSelector:
+    matchLabels:
+      language: python
+  parameters:
+    location: eastus
+    versioning: true
+    acl: public

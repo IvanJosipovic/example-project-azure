@@ -1,0 +1,18 @@
+apiVersion: apiextensions.crossplane.io/v1
+kind: Composition
+metadata:
+  name: xstoragebuckets.python.platform.example.com
+  labels:
+    language: python
+spec:
+  compositeTypeRef:
+    apiVersion: platform.example.com/v1alpha1
+    kind: XStorageBucket
+  mode: Pipeline
+  pipeline:
+  - functionRef:
+      name: upbound-example-project-azurecompose-bucket-python
+    step: compose-bucket-python
+  - functionRef:
+      name: crossplane-contrib-function-auto-ready
+    step: crossplane-contrib-function-auto-ready

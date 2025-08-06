@@ -1,8 +1,9 @@
 apiVersion: apiextensions.crossplane.io/v1
 kind: Composition
 metadata:
-  creationTimestamp: null
-  name: xstoragebuckets.platform.example.com
+  name: xstoragebuckets.kcl.platform.example.com
+  labels:
+    language: kcl
 spec:
   compositeTypeRef:
     apiVersion: platform.example.com/v1alpha1
