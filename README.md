@@ -1,5 +1,11 @@
 # example-project-azure
 
+> [!IMPORTANT]
+>
+> This repository is no longer maintained. An equivalent Upbound project
+> template is available at
+> [upbound/project-template-azure-storage](https://github.com/upbound/project-template-azure-storage).
+
 An example Upbound control plane project for Microsoft Azure.
 
 A control plane project is a source-level representation of a Crossplane control
